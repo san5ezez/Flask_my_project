@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Страница администратора</title>
+    <link rel="stylesheet" href="static/style.css">
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="/">Игра в мафию</a></li>
+          <li><a href="/admin">Администрирование</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <h1>Администрирование игры в мафию</h1>
+      <form action="/add_player" method="POST">
+        <h2>Добавить игрока</h2>
+        <label for="player-name">Имя игрока:</label>
+        <input type="text" id="player-name" name="id" required>
+        <label for="player-role">Роль игрока:</label>
+        <select id="player-role" name="player_role" required>
+          <option value="Мафия">Мафия</option>
+          <option value="Шериф">Шериф</option>
+          <option value="Доктор">Доктор</option>
+          <option value="Мирный житель">Мирный житель</option>
+        </select>
+        <button type="submit">Добавить игрока</button>
+      </form>
+      <hr>
+      <h2>Список игроков:</h2>
+      <ul>
+        {% for item in data %}
+      <div class="add_ployer">
+          <p>Номер игрока: {{ item.id}}</p>
+          <p>Ваша роль: {{ item.player_role}}</p>
+          <form class="delete" action="/delete card" method="POST">
+            <input type="submit" value="Забанить">
+            <img src="…/static/cban-button.gif" class="delete" >
+            <input type="hidden" name="id" value="{{ item.id }}"></input>
+            </form>
+      </div>
+      
+    {% endfor %}
+      </ul>
+    </main>
+  </body>
+</html>

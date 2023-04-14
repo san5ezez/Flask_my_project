@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Игра в мафию</title>
+    <link rel="stylesheet" href="static/style.css">
+  </head>
+  <body>
+    <h1>Игра в мафию</h1>
+    <p>Выберите карточку:</p>
+    <form method="POST">
+      <label><input type="radio" name="card" value="Шериф"> Шериф</label><br>
+      <label><input type="radio" name="card" value="Доктор"> Доктор</label><br>
+      <label><input type="radio" name="card" value="Мирный"> Мирный</label><br>
+      <br>
+      <button type="submit">Играть!</button>
+    </form>
+    {% if result %}
+    <p>{{ result }}</p>
+    {% endif %}
+  </body>
+</html>
