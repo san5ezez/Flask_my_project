@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, redirect
-from data import data, kaunt
+from data import data
 import random
 app = Flask(__name__)
 
@@ -42,15 +42,29 @@ def delete_card():
             data.remove (card)
     return redirect ('/admin')
 
+
+# пофиксить добавление карточки
 @app.route('/add_player', methods=['POST'])
 def add_ployer():
     pl = {}
-    pl["id"] = kaunt
-    pl["player_role"] = request.form["player_role"]
-    data.append(pl)
-    print(pl)
-    print(data)
-    return redirect('/admin')
+    count = 1
+    pl["id"] = 1
+
+    try:
+        for item in range(len(data)):
+            print(count)
+            if int(data[item]['id']) >= count:
+                count = data[item]['id']
+        pl["id"] = count
+        pl["player_role"] = request.form["player_role"]
+        data.append(pl)
+        return redirect('/admin')
+    
+    except:  
+        pl["player_role"] = request.form["player_role"]
+        data.append(pl)
+        return redirect('/admin')  
+   
 
 @app.route('/admin')
 def admin():
