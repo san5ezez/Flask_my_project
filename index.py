@@ -15,23 +15,27 @@ all_cards = [sherif_1, sherif_2, doctor, mir_1, mir_2]
 # Маршрут для отображения шаблона и обработки формы
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    if request.method == 'POST':
-        # Получаем выбранную карточку из формы
-        player_card = request.form['card']
-        # Выбираем случайным образом карточку компьютера
-        computer_card = random.choice(all_cards)
-        # Определяем победителя
-        if player_card == 'Мафия':
-            result = 'Вы проиграли! Компьютер выбрал карту ' + computer_card
-        elif player_card == computer_card:
-            result = 'Ничья! Компьютер выбрал ту же карту: ' + computer_card
+    try:
+        if request.method == 'POST':
+            # Получаем выбранную карточку из формы
+            player_card = request.form['card']
+            # Выбираем случайным образом карточку компьютера
+            computer_card = random.choice(all_cards)
+            # Определяем победителя
+            if player_card == 'Мафия':
+                result = 'Вы проиграли! Компьютер выбрал карту ' + computer_card
+            elif player_card == computer_card:
+                result = 'Ничья! Компьютер выбрал ту же карту: ' + computer_card
+            else:
+                result = 'Вы выиграли! Компьютер выбрал карту ' + computer_card
+                    # Возвращаем результат и обновляем страницу
+            return render_template('index.html', result=result)
         else:
-            result = 'Вы выиграли! Компьютер выбрал карту ' + computer_card
-                # Возвращаем результат и обновляем страницу
-        return render_template('index.html', result=result)
-    else:
-    # Если метод запроса GET, отображаем шаблон без результата
-        return render_template('index.html')
+        # Если метод запроса GET, отображаем шаблон без результата
+            return render_template('index.html')
+
+    except KeyError:
+        return render_template('error.html'), 400
     
 @app.route('/delete_card', methods=['POST'])
 def delete_card():
@@ -47,23 +51,10 @@ def delete_card():
 @app.route('/add_player', methods=['POST'])
 def add_ployer():
     pl = {}
-    count = 1
-    pl["id"] = 1
-
-    try:
-        for item in range(len(data)):
-            print(count)
-            if int(data[item]['id']) >= count:
-                count = data[item]['id']
-        pl["id"] = count
-        pl["player_role"] = request.form["player_role"]
-        data.append(pl)
-        return redirect('/admin')
-    
-    except:  
-        pl["player_role"] = request.form["player_role"]
-        data.append(pl)
-        return redirect('/admin')  
+    pl["id"] = random.randint(1, 1000)
+    pl["player_role"] = request.form["player_role"]
+    data.append(pl)
+    return redirect('/admin')  
    
 
 @app.route('/admin')

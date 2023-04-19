@@ -72,21 +72,21 @@ a:hover {
   }
 }
 .delete {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 50px;
-  object-fit: cover;
-  height: 50px;
-  padding: 10px;
+  background-color: #ff0000;
+  color: #fff;
   border: none;
-  cursor: pointer;
+  border-radius: 3px;
+  padding: 3px;
+  margin-top: 3px;
+  font-size: 55px;
 }
 
 .add_player {
   border: 4px solid black;
   position: relative;
   width: 300px;
+  margin: 20px;
+  margin-right: 5px;
 }
 
 .all_player {
@@ -94,5 +94,9 @@ a:hover {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  margin: 20px 0;
+  margin: 20px;
+  margin-right: 5px;
+}
+.aabbcc {
+  font-size: 80px;
 }
