@@ -34,10 +34,10 @@ def index():
             else:
                 result = 'Вы выиграли! Компьютер выбрал карту ' + computer_card
                     # Возвращаем результат и обновляем страницу
-            return render_template('index.html', result=result)
+            return render_template('index.html', result=result, data = data)
         else:
         # Если метод запроса GET, отображаем шаблон без результата
-            return render_template('index.html')
+            return render_template('index.html', data = data)
 
     except KeyError:
         return render_template('error.html'), 400
