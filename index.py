@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect
 from data import data
 import random
+#import os
 app = Flask(__name__)
 
 
@@ -13,6 +14,10 @@ mir_2 = 'Мирный'
 all_cards = [sherif_1, sherif_2, doctor, mir_1, mir_2]
 
 # Маршрут для отображения шаблона и обработки формы
+#def get_data():
+#    with open('data.py', 'r', encoding="utf-8") as f:
+#        data = f.read()
+#    return data
 @app.route('/', methods=['GET', 'POST'])
 def index():
     try:
@@ -53,7 +58,12 @@ def add_ployer():
     pl = {}
     pl["id"] = random.randint(1, 1000)
     pl["player_role"] = request.form["player_role"]
+    #image = request.files['image']
+    #filename = f"{pl['id']}.jpg"
+    #file_path = os.path.join("static", "photo", filename).replace("\\", "/")
+    #image.save (file_path)
     data.append(pl)
+#    writedata(f"data = {data}")
     return redirect('/admin')  
    
 
