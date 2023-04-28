@@ -27,14 +27,17 @@ def index():
             # Выбираем случайным образом карточку компьютера
             computer_card = random.choice(all_cards)
             # Определяем победителя
-            if player_card == 'Мафия':
-                result = 'Вы проиграли! Компьютер выбрал карту ' + computer_card
-            elif player_card == computer_card:
-                result = 'Ничья! Компьютер выбрал ту же карту: ' + computer_card
+            if len(data)<4: 
+                return render_template('index.html'), 302
             else:
-                result = 'Вы выиграли! Компьютер выбрал карту ' + computer_card
+                if player_card == 'Мафия':
+                     result = 'Вы проиграли! Компьютер выбрал карту ' + computer_card
+                elif player_card == computer_card:
+                    result = 'Ничья! Компьютер выбрал ту же карту: ' + computer_card
+                else:
+                    result = 'Вы выиграли! Компьютер выбрал карту ' + computer_card
                     # Возвращаем результат и обновляем страницу
-            return render_template('index.html', result=result, data = data)
+                return render_template('index.html', result=result, data = data)
         else:
         # Если метод запроса GET, отображаем шаблон без результата
             return render_template('index.html', data = data)
@@ -56,9 +59,10 @@ def delete_card():
 @app.route('/add_player', methods=['POST'])
 def add_ployer():
     pl = {}
+    print(data)
     pl["id"] = random.randint(1, 1000)
     pl["player_role"] = request.form["player_role"]
-    if len(data)>5: 
+    if len(data)>4: 
         return render_template('error.html'), 400
     else:
         data.append(pl)
