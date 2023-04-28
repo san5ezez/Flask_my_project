@@ -58,13 +58,12 @@ def add_ployer():
     pl = {}
     pl["id"] = random.randint(1, 1000)
     pl["player_role"] = request.form["player_role"]
-    #image = request.files['image']
-    #filename = f"{pl['id']}.jpg"
-    #file_path = os.path.join("static", "photo", filename).replace("\\", "/")
-    #image.save (file_path)
-    data.append(pl)
+    if len(data)>5: 
+        return render_template('error.html'), 400
+    else:
+        data.append(pl)
 #    writedata(f"data = {data}")
-    return redirect('/admin')  
+        return redirect('/admin')  
    
 
 @app.route('/admin')

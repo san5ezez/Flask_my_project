@@ -120,15 +120,46 @@ a:hover {
   padding: 20px;
   text-align: center;
 }
-.all-player {
 
+.all-player {
+  margin-top:450.3245px ;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
 }
 
+.add {
+  position: absolute;
+  width: 1  80px;
+  height: 180px;
+  border-radius: 10px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: rotate(0deg);
+}
 
+.add:nth-child(1) {
+  transform: rotate(72deg) translate(0, -345px) rotate(-72deg);
+}
+
+.add:nth-child(2) {
+  transform: rotate(144deg) translate(0, -345px) rotate(-144deg);
+}
+
+.add:nth-child(3) {
+  transform: rotate(216deg) translate(0, -345px) rotate(-216deg);
+}
+
+.add:nth-child(4) {
+  transform: rotate(288deg) translate(0, -345px) rotate(-288deg);
+}
+
+.add:nth-child(5) {
+  transform: rotate(360deg) translate(0, -345px) rotate(-360deg);
+}
 
 .add:hover {
   background-image: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
