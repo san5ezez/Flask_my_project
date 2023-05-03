@@ -6,23 +6,56 @@
     <link rel="stylesheet" href="static/style.css">
   </head>
   <body>
-    <h1>Игра в мафию</h1>
+    <!-- <h1>Игра в мафию</h1>
     <p>Выберите карточку:</p>
     <form method="POST">
       <br>
       <button type="submit">Играть!</button>
-    </form>
-    {% if result %}
-    <p>{{ result }}</p>
-    {% endif %}
-    <h2>Список игроков:</h2>
-    <img src="static/revolver.png" alt="Шериф" class="revolver">
-    <div class="all-player">
-      {% for item in data %}
-      <div class="add">
-          <p>Номер игрока: {{ item.id}}</p>
-          <p>Ваша роль: ???</p>
+    </form> -->
+    <!-- {% if result %}
+    <p>{{ result }}</p> -->
+    <!-- {% endif %}
+    <h2>Список игроков:</h2> -->
+    <p class="angle" id="angle"></p>
+    <div class="game">
+      <img src="static/revolver.png" alt="Шериф" class="revolver" id="revolver">
+      <div class="all-player">
+        {% for item in data %}
+        <div class="add">
+            <p>Номер игрока: {{ item.id}}</p>
+            <p>Ваша роль: ???</p>
+        </div>
+        {% endfor %}
       </div>
-      {% endfor %}
   </body>
 </html>
+
+<script>
+// Получаем ссылку на элемент
+var img = document.getElementById("revolver");
+
+// Устанавливаем начальный угол вращения
+var angle = 0;
+
+// Определяем случайный угол остановки вращения
+var stopAngle = Math.floor(Math.random() * 360) + 1;
+
+// Устанавливаем интервал вращения
+var rotateInterval = setInterval(function() {
+  // Увеличиваем угол на 1 градус
+  angle++;
+
+  // Применяем трансформацию вращения к элементу
+  img.style.transform = "rotate(" + angle + "deg)";
+
+  // Выводим угол вращения на страницу
+  document.getElementById("angle").innerHTML = "Угол наклона: " + angle + " градусов";
+
+  // Если достигнут угол остановки, останавливаем интервал вращения
+  if (angle == stopAngle) {
+    clearInterval(rotateInterval);
+  }
+}, 10);
+
+
+</script>

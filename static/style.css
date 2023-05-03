@@ -170,12 +170,18 @@ a:hover {
   position: absolute;
   width: 400px;
   height: 210px;
-  transform: translateY(-50%);
   object-fit: cover;
-  animation: spin 3s 2;
+  /* animation: spin 3s 2; */
+  margin-top: -10%;
+  margin-left: -15%;
+
 }
 
-@keyframes spin {
+.game {
+  position: relative;
+}
+
+/* @keyframes spin {
   0% {
     transform: rotate(0deg);
   }
@@ -183,4 +189,4 @@ a:hover {
   100% {
     transform: rotate(360deg);
   }
-}
+} */
