@@ -171,10 +171,6 @@ a:hover {
   width: 400px;
   height: 210px;
   transform: translateY(-50%);
-  top: 120%;
-  left: 50%;
-  margin-left: -150px;
-  margin-top: -150px;
   object-fit: cover;
   animation: spin 3s 2;
 }
