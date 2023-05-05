@@ -70,8 +70,12 @@ def admin():
 @app.route('/shot_game', methods=['POST'])
 def game():
     angle = request.form['angle']
-    print(angle)
-    return render_template('index.html', data=data)
+    angle = int(angle)
+    for item in data:
+        print (str(angle) )
+        if 72 or 144 or 216 or 288 or 360 == angle:
+            data.remove(item)
+    return render_template('index.html', data=data), 304
 
 if __name__ == '__main__':
     app.run (debug=True)
