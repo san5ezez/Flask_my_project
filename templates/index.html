@@ -16,7 +16,14 @@
     <p>{{ result }}</p> -->
     <!-- {% endif %}
     <h2>Список игроков:</h2> -->
-    <p class="angle" id="angle"></p>
+
+    <form id="game-form" method="POST" action="/shot_game">
+      <p class="angle" id="angle"></p>
+      <input type="hidden" id="angle-input" name="angle" value="">
+      <button type="submit">Играть!</button>
+
+  </form>
+    
     <div class="game">
       <img src="static/revolver.png" alt="Шериф" class="revolver" id="revolver">
       <div class="all-player">
@@ -29,7 +36,7 @@
       </div>
   </body>
 </html>
-<form action="C:/Users/famil/OneDrive/Рабочий стол/python  и т.д/Minecraft Tools/mai_rabota/index.py" method="post"></form>
+
 <script>
 // Получаем ссылку на элемент
 var img = document.getElementById("revolver");
@@ -49,13 +56,22 @@ var rotateInterval = setInterval(function() {
   img.style.transform = "rotate(" + angle + "deg)";
 
   // Выводим угол вращения на страницу
-  document.getElementById("angle").innerHTML = "Угол наклона: " + angle + " градусов";
+  document.getElementById("angle").innerHTML = angle
 
   // Если достигнут угол остановки, останавливаем интервал вращения
   if (angle == stopAngle) {
     clearInterval(rotateInterval);
   }
 }, 10);
+
+const form = document.getElementById('game-form');
+form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const angle = document.getElementById('angle').textContent;
+    const angleInput = document.getElementById('angle-input');
+    angleInput.value = angle;
+    form.submit();
+});
 
 
 

@@ -4,11 +4,6 @@ import random
 #import os
 app = Flask(__name__)
 
-import cgi
-
-# Получаем данные из HTML формы
-form = cgi.FieldStorage()
-angle = form.getvalue("angle")
 
 # Создаем переменные с карточками
 sherif_1 = 'Шериф'
@@ -23,6 +18,8 @@ all_cards = [sherif_1, sherif_2, doctor, mir_1, mir_2]
 #    with open('data.py', 'r', encoding="utf-8") as f:
 #        data = f.read()
 #    return data
+
+
 @app.route('/', methods=['GET', 'POST'])
 def index():
     #try:
@@ -33,7 +30,7 @@ def index():
             return render_template('index.html', result=result, data = data)
         else:
         # Если метод запроса GET, отображаем шаблон без результата
-            return render_template('index.html', data = data),print(angle)
+            return render_template('index.html', data = data)
         
             
 
@@ -68,6 +65,13 @@ def add_ployer():
 @app.route('/admin')
 def admin():
     return render_template('admin.html', data=data)
+
+
+@app.route('/shot_game', methods=['POST'])
+def game():
+    angle = request.form['angle']
+    print(angle)
+    return render_template('index.html', data=data)
 
 if __name__ == '__main__':
     app.run (debug=True)
