@@ -4,6 +4,11 @@ import random
 #import os
 app = Flask(__name__)
 
+import cgi
+
+# Получаем данные из HTML формы
+form = cgi.FieldStorage()
+angle = form.getvalue("angle")
 
 # Создаем переменные с карточками
 sherif_1 = 'Шериф'
@@ -28,10 +33,12 @@ def index():
             return render_template('index.html', result=result, data = data)
         else:
         # Если метод запроса GET, отображаем шаблон без результата
-            return render_template('index.html', data = data)
+            return render_template('index.html', data = data),print(angle)
+        
+            
 
     #except KeyError:
-        #return render_template('error.html'), 400
+        
     
 @app.route('/delete_card', methods=['POST'])
 def delete_card():
