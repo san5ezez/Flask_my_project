@@ -69,13 +69,32 @@ def admin():
 
 @app.route('/shot_game', methods=['POST'])
 def game():
+    first_angle = (50, 80)
+    second_angle = (100, 130)
+    third_angle = (150, 180)
+    forth_angle = (200, 230)
+    fifth_angle = (250, 280)
+
+
+    all_cards_angles = [72, 144, 216, 288, 360]
+    all_angles = [first_angle, second_angle, third_angle, forth_angle, fifth_angle]
+
     angle = request.form['angle']
     angle = int(angle)
+    print("угол на старте", angle)
     for item in data:
-        print (str(angle) )
-        if 72 or 144 or 216 or 288 or 360 == angle:
-            data.remove(item)
-    return render_template('index.html', data=data), 304
+        for angle_item in all_angles:
+            print(angle_item)
+            if angle in range(angle_item[0], angle_item[1]):
+                print(angle)
+                lay_angle = min(all_cards_angles, key=lambda x: abs(x - angle))
+                print(lay_angle)
+                try:
+                    data.pop(all_cards_angles.index(lay_angle))
+                except:
+                    pass
+                return render_template('index.html', data=data), 200
+    return render_template('index.html', data=data), 200
 
 if __name__ == '__main__':
     app.run (debug=True)
