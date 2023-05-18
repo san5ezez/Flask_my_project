@@ -1,192 +1,219 @@
-* {
-  text-decoration: none;
-  box-sizing: border-box;
-}
+/* styles.css */
+/* styles.css */
 
-.fix {
-  text-decoration: none;
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  font-family: Arial, sans-serif;
-  text-align: center;
-  margin: 0;
-  padding: 0;
-  background-color: #f2f2f2;
-}
-
-h1 {
-  font-size: 48px;
-  margin-top: 50px;
-}
-
-p {
-  font-size: 24px;
-  margin: 20px 0;
-}
-
-a {
-  display: inline-block;
-  font-size: 36px;
+.container {
+  max-width: 400px;
+  margin: 0 auto;
   padding: 20px;
-  margin: 10px;
-  background-color: #0066cc;
-  color: #fff;
-  text-decoration: none;
-  border-radius: 10px;
-  transition: background-color 0.3s ease;
+  background-color: #f7f7f7;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-a:hover {
-  background-color: #004b8c;
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
 }
-.card {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  width: 300px;
-  height: 300px;
-  margin: 10px;
-  background-color:#fff;
-  border-radius: 10px;
+
+.flash-messages {
+  margin-bottom: 20px;
+}
+
+.flash-message {
+  padding: 10px;
+  background-color: #ffeeee;
+  color: #dc3545;
+  border: 1px solid #dc3545;
+  border-radius: 5px;
+}
+
+.login-form {
+  margin-top: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
   border: 1px solid #ccc;
-  position: relative;
+  border-radius: 5px;
 }
 
-@media only screen and (max-width: 768px) {
-  h1 {
-    font-size: 36px;
-  }
-
-  p {
-    font-size: 18px;
-  }
-
-  a {
-    font-size: 24px;
-    padding: 10px;
-    margin: 5px;
-  }
+button.btn-login {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
-.delete {
-  background-color: #ff0000;
+
+button.btn-login:hover {
+  background-color: #0056b3;
+}
+
+/* Навигационное меню */
+.navbar {
+  background-color: #f8f8f8;
+  padding: 10px;
+  text-align: center;
+}
+
+.navbar h1 {
+  font-size: 24px;
+  color: #ff69b4;
+}
+
+/* Главная страница */
+body {
+  background-color: #fff;
+}
+
+/* Карточка товара */
+.product-card {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.product-card img {
+  max-width: 100%;
+  height: auto;
+}
+
+.product-card h2 {
+  font-size: 20px;
+  color: #333;
+}
+
+.product-card p {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 5px;
+}
+
+.product-card .price {
+  font-size: 16px;
+  color: #ff69b4;
+  font-weight: bold;
+}
+
+.product-card .wholesale-price {
+  font-size: 14px;
+  color: #999;
+}
+
+.product-card .description {
+  font-size: 14px;
+  color: #666;
+}
+
+.product-card .date {
+  font-size: 12px;
+  color: #999;
+}
+
+.product-card .category {
+  font-size: 14px;
+  color: #333;
+  font-weight: bold;
+}
+
+.product-card .quantity {
+  font-size: 14px;
+  color: #333;
+}
+
+.product-card .button {
+  background-color: #ff69b4;
   color: #fff;
   border: none;
-  border-radius: 3px;
-  padding: 3px;
-  margin-top: 3px;
-  font-size: 55px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 14px;
+  cursor: pointer;
 }
 
-.add_player {
-  border: 4px solid black;
-  position: relative;
-  width: 300px;
+/* Страница админки */
+.admin-page {
   margin: 20px;
-  margin-right: 5px;
 }
 
-.all_player {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  margin: 20px;
-  margin-right: 5px;
-  position: relative;
-}
-.aabbcc {
-  font-size: 80px;
-}
-.add_player {
-  border: 4px solid black;
-  position: relative;
-  width: 300px;
-  margin: 20px;
-  margin-right: 5px;
-}
-.add {
-  border: 4px solid black;
-  position: relative;
-  width: 300px;
-  margin: 20px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  border-radius: 10px;
-  padding: 20px;
-  text-align: center;
+.admin-page h2 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 10px;
 }
 
-.all-player {
-  margin-top:450.3245px ;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
+.admin-page .form-group {
+  margin-bottom: 10px;
 }
 
-.add {
-  position: absolute;
-  width: 1  80px;
-  height: 180px;
-  border-radius: 10px;
-  background: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transform: rotate(0deg);
+.admin-page label {
+  font-size: 14px;
+  color: #333;
+  font-weight: bold;
 }
 
-.add:nth-child(1) {
-  transform: rotate(72deg) translate(0, -445px) rotate(-72deg);
+.admin-page input[type="text"],
+.admin-page input[type="number"],
+.admin-page textarea {
+  width: 100%;
+  padding: 5px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
 
-.add:nth-child(2) {
-  transform: rotate(144deg) translate(0, -345px) rotate(-144deg);
+.admin-page input[type="submit"] {
+  background-color: #ff69b4;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
 }
 
-.add:nth-child(3) {
-  transform: rotate(216deg) translate(0, -345px) rotate(-216deg);
+.admin-page .product-list {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 20px;
 }
 
-.add:nth-child(4) {
-  transform: rotate(288deg) translate(0, -445px) rotate(-288deg);
+.admin-page .product-list li {
+  margin-bottom: 10px;
 }
 
-.add:nth-child(5) {
-  transform: rotate(360deg) translate(0, -345px) rotate(-360deg);
+.admin-page .product-list li .edit-link,
+.admin-page .product-list li .delete-link {
+  color: #ff69b4;
+  text-decoration: none;
+  margin-right: 10px;
+  font-size: 14px;
 }
 
-.add:hover {
-  background-image: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+.admin-page .product-list li .delete-link {
+  color: #f00;
 }
 
-.revolver {
-  position: absolute;
-  width: 400px;
-  height: 210px;
-  object-fit: cover;
-  /* animation: spin 3s 2; */
-  margin-top: -10%;
-  margin-left: -15%;
-
+.admin-page .error {
+  color: #f00;
 }
-
-.game {
-  position: relative;
-}
-
-/* @keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
-} */
